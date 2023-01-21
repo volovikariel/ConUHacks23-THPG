@@ -3,8 +3,9 @@
 var input = document.getElementById('pass');
 var answer = document.getElementById("answer");
 var improveB = document.getElementById("improveB");
-
 var passExists = false;
+var autocomplete =null;
+
 
 // WHEN PASSWORD INPUT CHANGES RUN THIS
 input.addEventListener('input',function(e){  
@@ -25,6 +26,9 @@ input.addEventListener('input',function(e){
     
 });
 
+if(autocomplete!=null){
+    console.log('Found autocomplete!')
+}
 
 //IMPROVE PASSWORD 
 
