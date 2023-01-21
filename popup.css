@@ -1,0 +1,12 @@
+#mainPopup {
+    padding: 10px;
+    height: 400px;
+    width: 288px;
+     
+}
+body{
+    background-color: DarkTurquoise;
+    background: linear-gradient( DarkTurquoise,rgb(123, 236, 238));
+    font-family: "Lexend",serif;
+    color:white;
+}
