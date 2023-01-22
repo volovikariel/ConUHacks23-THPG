@@ -40,7 +40,7 @@ ifAddSpacer.addEventListener("click", function (e) {
 });
 
 generate.addEventListener("click", function (e) {
-  displayPass.setAttribute("value", generatePassword());
+  displayPass.value = generatePassword();
 });
 
 var interval = setInterval(function () {
