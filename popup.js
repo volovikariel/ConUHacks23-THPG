@@ -1,4 +1,3 @@
-
 // DOM ELEMENTS
 var input = document.getElementById('pass');
 var answer = document.getElementById("answer");
@@ -6,7 +5,6 @@ var improveB = document.getElementById("improveB");
 var createPass = document.getElementById("createP");
 var mainPopup = document.getElementById("mainPopup");
 var babyPopup = document.getElementById("babyPopup");
-var passCrackTime = document.getElementById("lengthToCrack");
 var passExists = false;
 var autocomplete =null;
 
@@ -17,20 +15,22 @@ createPass.onclick=function(){
 }
 
 // WHEN PASSWORD INPUT CHANGES RUN THIS
-// input.addEventListener('input',function(e){  
-//     console.log("Changing password");
+input.addEventListener('input',function(e){  
+    console.log("Changing password");
+  
+    if (input.value ===""){
+        answer.innerText= "Waiting..";
+        improveB.style.visibility="hidden";
+    }
+    if (input.value!= ""){
+        answer.innerText= "keep it up";
+        improveB.style.visibility ='visible';
+    }
+    if (input.value === "1234"){
+        answer.innerText= "Your password sucks!";
+    }
     
-//     if (input.value ===""){
-//         improveB.style.visibility="hidden";
-        
-//     }
-//     if (input.value!= ""){
-//         improveB.style.visibility ='visible';
-//         passCrackTime.innerText=howsafe(input.value);
-//     }
-    
-    
-// });
+});
 
 if(autocomplete!=null){
     console.log('Found autocomplete!')
@@ -38,18 +38,14 @@ if(autocomplete!=null){
 
 //How safe is password?
 
-let table = null;
+
 fetch('./SafetyTable.json')
 .then(response => response.json())
 .then(data => {table=data})
  function howsafe( password){
     
-    console.log('Im here')
     //Figure out which categorie the password is in
-    var index = 1;
-
-    console.log('Whats up')
-
+    index = 0;
     if(containsOnlyNumbers(password)) index = 1;
     else if(containsLowercase(password)&& !containsUppercase(password)&& !containsSpecialchar(password) && !containsNumbers(password)) index = 2;
     else if (containsLowercase(password)&& containsUppercase(password)&& !containsSpecialchar(password)&& !containsNumbers(password)) index = 3;
@@ -60,27 +56,32 @@ fetch('./SafetyTable.json')
     console.log("Index is"+index);
     //Parse password to string to get its length
     password = password.toString();
-    var l =  password.length-4; 
-  
-    if(l>18){return l*2+40+"qntn years"};
-    if (l<0) l= 0;
-    
-
+    l =  password.length-4; 
+    if(l>14) l = 14;
     console.log("Length is"+index);
 
     switch (index) {
         case 1:
             return table[l]['Numbers Only']
+            break;
         case 2:
-            return table[l]['Lowercase Letters'] 
+            return table[l]['Lowercase Letters']
+            break;
         case 3:
             return table[l]['Upper and Lowercase Letters']
+           
+            break;
         case 4:
             return table[l]['Numbers, Upper and Lowercase Letters']
+            
+            break;
         case 5:
             return table[l]['Numbers, Upper and Lowercase Letters, Symbols']
+            break;
+    
         default:
             return "Couldn't calculate O-O' "
+            break;
     }
 
 }
@@ -101,30 +102,3 @@ var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 function containsSpecialchar(str){
     return format.test(str);
 }
-
-
-
-// Password generator
-
-
-var passwords = ['password123', 'qwertyuiop', 'admin2015', 'trustno1', 'letmein6969'];
-var indexOld;
-var index = Math.floor((Math.random() * passwords.length));
-var password = passwords[index];
-var characters = [];
-var counter = 0;
-	
-var interval = setInterval(function(){
-		for(let i = 0; i < counter; i++) {
-			characters[i] = password.charAt(i);
-		}
-		for(let i = counter; i < password.length; i++) {
-			characters[i] = Math.random().toString(36).charAt(2);
-		}
-		$('.password').text(characters.join(''));
-	}, 1000);
-	
-
-    if (typeof $ == 'function'){
-        console.log("YAY")
-    }
