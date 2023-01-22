@@ -10,7 +10,6 @@ var capitalizeChar = false;
 var addNum = false;
 var addSpecialChar = false;
 var addSpacer = false;
-
 const wordSeparator = '_'
 
 //This function updates the state of toggle from false (grayed out) to true ( selected )
@@ -106,7 +105,7 @@ function generatePassword() {
   if (addSpecialChar) {
     password += specialChars.charAt(randInt(0, specialChars.length - 1));
   }
-  
+  currentPassArray = chosenWords;
   return password;
 }
 
