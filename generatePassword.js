@@ -107,7 +107,17 @@ function generatePassword() {
     password += specialChars.charAt(randInt(0, specialChars.length - 1));
   }
 
+  password = "";
+  for(let i = 0; i < chosenWords.length; i++){
+    password += chosenWords[i];
+  }
+  
   return password;
+}
+
+//returns a randomw word from the dict
+function getWord(){
+    return wordsJSON[diceRollInt(4)];
 }
 
 //Random int based on size n of dict
