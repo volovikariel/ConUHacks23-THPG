@@ -3,9 +3,17 @@
 var input = document.getElementById('pass');
 var answer = document.getElementById("answer");
 var improveB = document.getElementById("improveB");
+var createPass = document.getElementById("createP");
+var mainPopup = document.getElementById("mainPopup");
+var babyPopup = document.getElementById("babyPopup");
 var passExists = false;
 var autocomplete =null;
 
+createPass.onclick=function(){
+    babyPopup.style.display = 'none';
+    mainPopup.style.display= 'block';
+    
+}
 
 // WHEN PASSWORD INPUT CHANGES RUN THIS
 input.addEventListener('input',function(e){  
@@ -31,5 +39,5 @@ if(autocomplete!=null){
     console.log('Found autocomplete!')
 }
 
-//IMPROVE PASSWORD 
+//How safe is password?
 
