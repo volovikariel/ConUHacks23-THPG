@@ -21,7 +21,8 @@ input.addEventListener('input',function(e){
         improveB.style.visibility ='visible';
     }
     if (input.value === "1234"){
-        answer.innerText= "Your password sucks!";
+        //answer.innerText= "Your password sucks!";
+        answer.innerText=generatePassword(3);
     }
     
 });
@@ -31,5 +32,4 @@ if(autocomplete!=null){
 }
 
 //IMPROVE PASSWORD 
-
 
