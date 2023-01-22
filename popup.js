@@ -140,6 +140,13 @@ function containsSpecialchar(str){
 
 importantPass.addEventListener('input',function(e){  
     // This runs when password is changed
+    checkPassSize(importantPass)
+})
+let interval2 = setInterval(() => {
+        checkPassSize(importantPass);
+}, 100);
+
+function checkPassSize (importantPass){
     if (importantPass.value.length <5){
         importantPass.style.fontSize = '50px'
     }
@@ -152,8 +159,7 @@ importantPass.addEventListener('input',function(e){
     else if (importantPass.value.length <25){
         importantPass.style.fontSize = '20px'
     }
-    
-})
+}
 
 //Copy from clipboard
 
