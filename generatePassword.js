@@ -56,7 +56,7 @@ function generatePassword(){
         while(chosenWords.includes(currWord)){
             currWord = wordsJSON[diceRollInt(4)];
         }
-        if(password.length-currWord.length < sliderVal-password.length){
+        if(password.length+currWord.length < sliderVal){
             password += currWord;
             if(addSpacer){
                 password += "_";
@@ -64,9 +64,9 @@ function generatePassword(){
             chosenWords.push(currWord);
         }
         else{
-            while(rerolls++>10){
+            while(rerolls++<20){
                 currWord = wordsJSON[diceRollInt(4)];
-                if(password.length-currWord.length < sliderVal-password.length){
+                if(password.length+currWord.length < sliderVal){
                     password += currWord;
                     if(addSpacer){
                         password += "_";
@@ -79,22 +79,22 @@ function generatePassword(){
     }
 
     while(password.length < sliderVal){
-        password += chars[randInt(0, 26)];
+        password += chars.charAt(randInt(0,chars.length-1))
     }
 
     if(addChar){
         password = password.substring(0,password.length-1);
-        password += chars[randInt(0, chars.length)];
+        password += chars.charAt(randInt(0,chars.length-1))
     }
     
     if(addNum){
         password = password.substring(0,password.length-1);
-        password += numbers[randInt(0, numbers.length)];
+        password += numbers.charAt(randInt(0,numbers.length-1))
     }
     
     if(addSpecialChar){
         password = password.substring(0,password.length-1);
-        password += specialChars[randInt(0, specialChars.length)];
+        password += specialChars.charAt(randInt(0,specialChars.length-1))
     }
 
     return password;
