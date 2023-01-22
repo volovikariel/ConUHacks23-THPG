@@ -11,6 +11,8 @@ var addNum = false;
 var addSpecialChar = false;
 var addSpacer = false;
 
+let currentPassArray ;
+
 const wordSeparator = '_'
 
 //This function updates the state of toggle from false (grayed out) to true ( selected )
@@ -111,7 +113,7 @@ function generatePassword() {
   for(let i = 0; i < chosenWords.length; i++){
     password += chosenWords[i];
   }
-  updateImage(chosenWords);
+  currentPassArray = chosenWords;
   return password;
 }
 
@@ -141,6 +143,14 @@ function isToggled(btn){
 
 
 // ! AI IMAGE GENERATOR
+imageGenerator.addEventListener("click", function (e) {
+    if (currentPassArray!= null){
+    updateImage(currentPassArray);
+    }
+  });
+
+
+
 
 let imgholder = document.getElementById('imageholder')
 
@@ -153,15 +163,49 @@ const options = {
 };
 
 function updateImage(params){
-fetch('https://jsonplaceholder.typicode.com/albums/1/photos')
+    let password = params.join(' ');
+    const data = new FormData();
+ data.append("text", password);
+
+ const options = {
+	method: 'POST',
+	headers: {
+		'api-key': '2a4cd37e-42d0-4703-91f3-3d95753a133d',
+	},
+	body: data
+};
+
+
+fetch('https://api.deepai.org/api/text2img', options)
       .then(response => 
 				response.json()
 				)
       .then(json => {
 				console.log(json);
-				image = json[0].url;
+				image = json.output_url;
       	console.log(image);
 				imgholder.src = image;
 			})
 			.then()
 }
+
+// let password = "blade tiara"
+
+// const data = new FormData();
+// data.append("text", password);
+
+
+// const options = {
+// 	method: 'POST',
+// 	headers: {
+// 		'api-key': 'quickstart-QUdJIGlzIGNvbWluZy4uLi4K',
+// 	},
+// 	body: data
+// };
+
+// fetch('https://api.deepai.org/api/text2img', options)
+// 	.then(response => response.json())
+// 	.then(response => console.log(response))
+// 	.catch(err => console.error(err));
+
+
