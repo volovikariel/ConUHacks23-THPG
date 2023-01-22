@@ -6,6 +6,7 @@ var createPass = document.getElementById("createP");
 var mainPopup = document.getElementById("mainPopup");
 var babyPopup = document.getElementById("babyPopup");
 var passCrackTime = document.getElementById("lengthToCrack");
+var sliderNumb = document.getElementById("slidernum");
 var passExists = false;
 var autocomplete =null;
 
@@ -121,9 +122,16 @@ var interval = setInterval(function(){
 			characters[i] = Math.random().toString(36).charAt(2);
 		}
 		$('.password').text(characters.join(''));
+        
 	}, 1000);
 	
-
+    var interval = setInterval(function(){
+        let val = $("#slider").val();
+        sliderNumb.innerText=val;
+    }, 100);
     if (typeof $ == 'function'){
-        console.log("YAY")
+        console.log("YAY");
     }
+
+   
+    

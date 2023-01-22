@@ -1,13 +1,13 @@
 #babyPopup {
   padding: 10px;
-  height: 50px;
+  height: 600px;
   width: 288px;
   transition: visibility 2s linear;
 }
 
 #mainPopup {
   padding: 10px;
-  height: 500px;
+  height: 600px;
   width: 288px;
   transition: visibility 2s linear;
 }
@@ -27,13 +27,6 @@ body {
   color: white;
 }
 
-.btn-group {
-  display: flex;
-}
-
-.btn-group {
-  display: flex;
-}
 
 /* CSS */
 .button-6 {
