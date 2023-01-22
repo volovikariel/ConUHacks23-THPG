@@ -4,7 +4,6 @@
 // "The author hereby grants rights for free, non-commercial,
 // distribution of this entire text with attribution. All other
 // rights reserved."
-
 var diceware = {
     11111: "a",
     11112: "a&p",

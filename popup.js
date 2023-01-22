@@ -1,4 +1,3 @@
-
 // DOM ELEMENTS
 var input = document.getElementById('pass');
 var answer = document.getElementById("answer");
@@ -22,7 +21,6 @@ input.addEventListener('input',function(e){
     if (input.value ===""){
         answer.innerText= "Waiting..";
         improveB.style.visibility="hidden";
-        
     }
     if (input.value!= ""){
         answer.innerText= "keep it up";
@@ -104,3 +102,4 @@ var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 function containsSpecialchar(str){
     return format.test(str);
 }
+
