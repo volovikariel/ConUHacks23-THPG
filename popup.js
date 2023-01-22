@@ -8,7 +8,7 @@ var babyPopup = document.getElementById("babyPopup");
 var passCrackTime = document.getElementById("lengthToCrack");
 var sliderNumb = document.getElementById("slidernum");
 var passExists = false;
-var autocomplete =null;
+var autocomplete = null;
 var copytoClip = document.getElementById("copytoClip");
 
 
@@ -16,18 +16,18 @@ var copytoClip = document.getElementById("copytoClip");
 // WHEN PASSWORD INPUT CHANGES RUN THIS
 importantPass.addEventListener('input',function(e){  
     console.log("Changing password");
-    if (importantPass.value!= ""){
+    if (importantPass.value != ""){
         passCrackTime.innerText=howsafe(importantPass.value);
     }
+    console.log("done");
 });
 
 let interval3 = setInterval(() => {
-    if (importantPass.value!= ""){
+    if (importantPass.value != ""){
         passCrackTime.innerText=howsafe(importantPass.value);
     }
-    importantPass.value = importantPass.innerText;
 
-}, 50);
+}, 100);
 
 if(autocomplete!=null){
     console.log('Found autocomplete!')
@@ -41,18 +41,15 @@ fetch('./SafetyTable.json')
 .then(data => {table=data})
  function howsafe( password){
     
-   
     //Figure out which categorie the password is in
     var index = 0;
 
-   
     if(containsLowercase(password))index=index+1;
     if(containsNumbers(password))index=index+1;
     if(containsUppercase(password))index=index+1;
     if(containsSpecialchar(password))index=index+1;
     
 
-   
     //Parse password to string to get its length
     password = password.toString();
     var l =  password.length-4; 
@@ -67,7 +64,6 @@ fetch('./SafetyTable.json')
         return l*2+40+"qtn years";
     };
     if (l<0) l= 0;
-    console.log("Length is"+l);
 
     
 
@@ -83,7 +79,7 @@ fetch('./SafetyTable.json')
         case 5:
             return table[l]['Numbers, Upper and Lowercase Letters, Symbols']
         default:
-            return "Couldn't calculate O-O' "
+            return "Couldn't calculate O-O"
     }
 
 }
@@ -147,7 +143,8 @@ function containsSpecialchar(str){
 importantPass.addEventListener('input',function(e){  
     // This runs when password is changed
     checkPassSize(importantPass)
-})
+});
+
 let interval2 = setInterval(() => {
         checkPassSize(importantPass);
 }, 100);
