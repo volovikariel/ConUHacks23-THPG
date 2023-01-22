@@ -11,7 +11,9 @@ function generatePassword(minLen, maxLen){
     var chosenWords = [];
     var currWord;
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-
+    const numbers = '0123456789'
+    const specialChars = '[!@#$%^&*()_+-=[]{};\':\"|,.<>/?]+\\'
+    
     while(password.length < minLen){
         currWord = wordsJSON[diceRollInt(4)]
         while(chosenWords.includes(currWord)){
