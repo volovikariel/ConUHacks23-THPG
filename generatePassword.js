@@ -51,27 +51,39 @@ function generatePassword(){
     const numbers = '0123456789';
     const specialChars = '[!@#$%^&*()+-=[]{};\':\"|,.<>/?]+\\';
 
-    while(password.length < 5){
-        currWord = wordsJSON[diceRollInt(4)];
+    while(password.length < sliderVal){
+        //generate current word
+        currWord = getWord();
+        
+        //check if current word is a duplicate
         while(chosenWords.includes(currWord)){
-            currWord = wordsJSON[diceRollInt(4)];
+            currWord = getWord();
         }
-        if(password.length+currWord.length < sliderVal){
+
+        //Check if adding the current word to the password goes over the limit
+        if(password.length+currWord.length <= sliderVal){
             password += currWord;
-            if(addSpacer){
+            //if the length of the password is what we need, dont add spacer
+            if(addSpacer && password.length != sliderVal){
                 password += "_";
             }
+            //Add current word to list of words
             chosenWords.push(currWord);
         }
         else{
-            while(rerolls++<20){
-                currWord = wordsJSON[diceRollInt(4)];
-                if(password.length+currWord.length < sliderVal){
+            //reroll words for a chance to get one we can use
+            while(rerolls++<5){
+                currWord = getWord();
+                //Check if adding the current word to the password goes over the limit
+                if(password.length+currWord.length <= sliderVal){
                     password += currWord;
-                    if(addSpacer){
+                    if(addSpacer && password.length != sliderVal){
                         password += "_";
                     }
+                    //add current word to list of words
                     chosenWords.push(currWord);
+                    //break out of loop so we dont need to keep rerolling
+                    break;
                 }
             }
             
@@ -98,6 +110,11 @@ function generatePassword(){
     }
 
     return password;
+}
+
+//returns a randomw word from the dict
+function getWord(){
+    return wordsJSON[diceRollInt(4)];
 }
 
 //Random int based on size n of dict
