@@ -44,11 +44,20 @@ fetch('./SafetyTable.json')
     //Figure out which categorie the password is in
     var index = 0;
 
-    if(containsLowercase(password))index=index+1;
-    if(containsNumbers(password))index=index+1;
-    if(containsUppercase(password))index=index+1;
-    if(containsSpecialchar(password))index=index+1;
+    var lowercase_flag = containsLowercase(password);
+    var uppercase_flag = containsUppercase(password);
+    var numbers_flag = containsNumbers(password);
+    var specialchar_flag = containsSpecialchar(password);
     
+    if(lowercase_flag && uppercase_flag && numbers_flag && specialchar_flag){
+        index = 4;
+    } else if(lowercase_flag && uppercase_flag && numbers_flag) {
+        index = 3;
+    } else if(lowercase_flag && uppercase_flag) {
+        index = 2;
+    } else {
+        index = 1;
+    }
 
     //Parse password to string to get its length
     password = password.toString();
@@ -66,17 +75,15 @@ fetch('./SafetyTable.json')
     if (l<0) l= 0;
 
     
-
+    selectGraph(index);
     switch (index) {
         case 1:
-            return table[l]['Numbers Only']
-        case 2:
             return table[l]['Lowercase Letters'] 
-        case 3:
+        case 2:
             return table[l]['Upper and Lowercase Letters']
-        case 4:
+        case 3:
             return table[l]['Numbers, Upper and Lowercase Letters']
-        case 5:
+        case 4:
             return table[l]['Numbers, Upper and Lowercase Letters, Symbols']
         default:
             return "Couldn't calculate O-O"
@@ -101,6 +108,25 @@ function containsSpecialchar(str){
     return format.test(str);
 }
 
+function selectGraph(index) {
+    const graph = document.getElementById("graph-img")
+    switch (index) {
+        case 1:
+            graph.src = "icons/lowercaseLettersGraph.png";
+            break;
+        case 2:
+            graph.src = "icons/upperAndLowercaseLettersGraph.png";
+            break;
+        case 3:
+            graph.src = "icons/numbersUpperAndLowercaseLettersGraph.png";
+            break;
+        case 4:
+            graph.src = "icons/allOptionsGraph.png";
+            break;
+        default:
+            return "Couldn't find image O-O' "
+    }
+}
 
 
 // Password generator
