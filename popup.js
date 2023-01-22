@@ -1,7 +1,7 @@
 // DOM ELEMENTS
 var importantPass = document.getElementById('importantPass');
 var answer = document.getElementById("answer");
-var improveB = document.getElementById("improveB");
+
 var createPass = document.getElementById("createP");
 var mainPopup = document.getElementById("mainPopup");
 var babyPopup = document.getElementById("babyPopup");
@@ -13,20 +13,14 @@ var copytoClip = document.getElementById("copytoClip");
 
 
 // WHEN PASSWORD INPUT CHANGES RUN THIS
-// input.addEventListener('input',function(e){  
-//     console.log("Changing password");
-    
-//     if (input.value ===""){
-//         improveB.style.visibility="hidden";
-        
-//     }
-//     if (input.value!= ""){
-//         improveB.style.visibility ='visible';
-//         passCrackTime.innerText=howsafe(input.value);
-//     }
+importantPass.addEventListener('input',function(e){  
+    console.log("Changing password");
+    if (importantPass.value!= ""){
+        passCrackTime.innerText=howsafe(importantPass.value);
+    }
     
     
-// });
+});
 
 if(autocomplete!=null){
     console.log('Found autocomplete!')
@@ -42,27 +36,33 @@ fetch('./SafetyTable.json')
     
     console.log('Im here')
     //Figure out which categorie the password is in
-    var index = 1;
+    var index = 0;
 
     console.log('Whats up')
-
-    if(containsOnlyNumbers(password)) index = 1;
-    else if(containsLowercase(password)&& !containsUppercase(password)&& !containsSpecialchar(password) && !containsNumbers(password)) index = 2;
-    else if (containsLowercase(password)&& containsUppercase(password)&& !containsSpecialchar(password)&& !containsNumbers(password)) index = 3;
-    else if(containsLowercase(password)&& containsUppercase(password)&& !containsSpecialchar(password)&& containsNumbers(password)) index =4;
-    else if (containsLowercase(password)&& containsUppercase(password)&& containsSpecialchar(password)&& containsNumbers(password)) index =5;
-    else index =1;
+    if(containsLowercase(password))index=index+1;
+    if(containsNumbers(password))index=index+1;
+    if(containsUppercase(password))index=index+1;
+    if(containsSpecialchar(password))index=index+1;
+    
 
     console.log("Index is"+index);
     //Parse password to string to get its length
     password = password.toString();
     var l =  password.length-4; 
-  
-    if(l>18){return l*2+40+"qntn years"};
-    if (l<0) l= 0;
     
+    if(l >= 14 && index == 2){
+        return l*2+40+"k years";
+    };
+    if(l >= 14 && index == 3){
+        return l*2+40+"bn years";
+    };
+    if(l >= 14 && index == 4){
+        return l*2+40+"qtn years";
+    };
+    if (l<0) l= 0;
+    console.log("Length is"+l);
 
-    console.log("Length is"+index);
+    
 
     switch (index) {
         case 1:
