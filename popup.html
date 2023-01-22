@@ -16,23 +16,28 @@
       <div class="container row flex-nowrap mt-5 ms-2 " >
         
             <div class="col">
-              <button type="button " class="btn btn-sm btn-light  "  >1</button>
+              <button type="button" class="btn btn-sm btn-light" id = "addNum">1</button>
             </div>
             <div class="col">
-              <button type="button" class="btn btn-sm btn-light">$</button>
+              <button type="button" class="btn btn-sm btn-light" id = "addSpecialChar">$</button>
             </div>
             <div class="col">
-              <button type="button" class="btn btn-sm btn-light">Aa</button>
+              <button type="button" class="btn btn-sm btn-light" id = "addChar">Aa</button>
             </div>
             <div class="col">
-              <button type="button" class="btn btn-sm btn-light disabled">-</button>
+              <button type="button" class="btn btn-sm btn-light" id = "addSpacer">-</button>
             </div>
       
             
       
       </div>
-      <div class="container mt-1 mb-1">
-        <div class="password ">PASSWORD</div>
+      <div class="container d-flex  d-inline mt-3 mb-1 align-items-baseline ">
+        <div>  <a href="#"><img id="copytoClip" src="./icons/copyToClip.png"  width="10"  alt=""></a>  </div>
+        
+
+        <div class=""><input type="text" class="passwordInput "  style="width:250px" id="importantPass" ></div>
+       
+      
       </div>
       <div class="container d-flex flex-nowrap d-inline justify-content-center ">
             <input type="range" id="slider" class="form-range" min="5" max="18" >
@@ -40,7 +45,7 @@
       </div>
 
       <div class="container d-flex mt-2 justify-content-center">
-        <button type="button" class="btn btn-light">Generate</button>
+        <button type="button" class="btn btn-light" id="genPassword">Generate</button>
 
       </div>
 
@@ -49,13 +54,13 @@
       </div>
       <div class="container mt-2 d-flex flex-wrap justify-content-center">
       <p>Your password would take this long to crack</p>
-     
+      <h1 id="lengthToCrack">...</h1>
     </div>
         
       <!-- <h1>Enter your password </h1>
       <input type="password" id="pass">
       <h2>Your password would this long to crack</h2>
-      <h1 id="lengthToCrack">...</h1>
+      
       <button class ="button-6" style="visibility:hidden;" id="improveB">Improve My password!</button>
        -->
     </div>
@@ -64,6 +69,7 @@
   </body>
 </html>
 <script src="jquery-3.6.0.min.js"></script>
+<script src="generatePassword.js" defer></script>
 <script type="module" src="popup.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 

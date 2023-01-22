@@ -20,14 +20,23 @@ body {
   background: linear-gradient(DarkTurquoise, rgb(221, 236, 236));
   font-family: "Lexend", serif;
   color: white;
+  margin:0;
 }
 
 
 /* Password  */
 
-.password {
+.importantPass {
   
   font-size: 40px;
   letter-spacing: 5px;
   text-transform: uppercase;
+  width:200px;
+}
+
+.passwordInput, .password:focus
+{
+    background: transparent;
+    border: none;
+    outline-width: 0; 
 }
