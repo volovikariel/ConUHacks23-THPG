@@ -12,15 +12,22 @@ var autocomplete =null;
 var copytoClip = document.getElementById("copytoClip");
 
 
+
 // WHEN PASSWORD INPUT CHANGES RUN THIS
 importantPass.addEventListener('input',function(e){  
     console.log("Changing password");
     if (importantPass.value!= ""){
         passCrackTime.innerText=howsafe(importantPass.value);
     }
-    
-    
 });
+
+let interval3 = setInterval(() => {
+    if (importantPass.value!= ""){
+        passCrackTime.innerText=howsafe(importantPass.value);
+    }
+    importantPass.value = importantPass.innerText;
+
+}, 50);
 
 if(autocomplete!=null){
     console.log('Found autocomplete!')
@@ -34,18 +41,18 @@ fetch('./SafetyTable.json')
 .then(data => {table=data})
  function howsafe( password){
     
-    console.log('Im here')
+   
     //Figure out which categorie the password is in
     var index = 0;
 
-    console.log('Whats up')
+   
     if(containsLowercase(password))index=index+1;
     if(containsNumbers(password))index=index+1;
     if(containsUppercase(password))index=index+1;
     if(containsSpecialchar(password))index=index+1;
     
 
-    console.log("Index is"+index);
+   
     //Parse password to string to get its length
     password = password.toString();
     var l =  password.length-4; 
@@ -139,6 +146,13 @@ function containsSpecialchar(str){
 
 importantPass.addEventListener('input',function(e){  
     // This runs when password is changed
+    checkPassSize(importantPass)
+})
+let interval2 = setInterval(() => {
+        checkPassSize(importantPass);
+}, 100);
+
+function checkPassSize (importantPass){
     if (importantPass.value.length <5){
         importantPass.style.fontSize = '50px'
     }
@@ -151,8 +165,7 @@ importantPass.addEventListener('input',function(e){
     else if (importantPass.value.length <25){
         importantPass.style.fontSize = '20px'
     }
-    
-})
+}
 
 //Copy from clipboard
 
@@ -172,3 +185,16 @@ copytoClip.addEventListener('click'
     
   });
 
+  //Code for topButtons Toggle
+
+ 
+
+  let btns = document.querySelectorAll(".toggle");
+
+
+btns.forEach(btn => {
+   btn.addEventListener('click', (event)=> {
+    btn.classList.toggle('toggle')   
+   });
+
+});
