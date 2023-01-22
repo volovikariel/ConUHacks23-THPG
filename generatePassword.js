@@ -93,7 +93,7 @@ function generatePassword() {
 
   // Don't allow for the word separator to appear at the end
   // We ONLY care about this when we're sure that it'll be the last character (no num/special char will be added)
-  if (password.length === sliderVal && password.at(-1) === wordSeparator) {
+  if (password.length == sliderVal && password.at(-1) == wordSeparator) {
     password = password.substring(0, password.length - 1);
     password += chars.charAt(randInt(0, chars.length - 1));
   }
