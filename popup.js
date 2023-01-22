@@ -103,29 +103,29 @@ function containsSpecialchar(str){
 // Password generator
 
 
-var passwords = ['password123', 'qwertyuiop', 'admin2015', 'trustno1', 'letmein6969'];
-var indexOld;
-var index = Math.floor((Math.random() * passwords.length));
-var password = passwords[index];
-var characters = [];
-var counter = 0;
+// var passwords = ['password123', 'qwertyuiop', 'admin2015', 'trustno1', 'letmein6969'];
+// var indexOld;
+// var index = Math.floor((Math.random() * passwords.length));
+// var password = passwords[index];
+// var characters = [];
+// var counter = 0;
 	
-var interval = setInterval(function(){
-		for(let i = 0; i < counter; i++) {
-			characters[i] = password.charAt(i);
-		}
-		for(let i = counter; i < password.length; i++) {
-			characters[i] = Math.random().toString(36).charAt(2);
-		}
-		$('.password').text(characters.join(''));
+// var interval = setInterval(function(){
+// 		for(let i = 0; i < counter; i++) {
+// 			characters[i] = password.charAt(i);
+// 		}
+// 		for(let i = counter; i < password.length; i++) {
+// 			characters[i] = Math.random().toString(36).charAt(2);
+// 		}
+// 		$('.password').text(characters.join(''));
         
-	}, 1000);
+// 	}, 1000);
 	
    
-    //JQery works
-    if (typeof $ == 'function'){
-        console.log("YAY");
-    }
+//     //JQery works
+//     if (typeof $ == 'function'){
+//         console.log("YAY");
+//     }
 
    //slider updater
 
