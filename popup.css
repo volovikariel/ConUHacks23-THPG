@@ -2,7 +2,7 @@
 
 #mainPopup {
   padding: 10px;
-  height: 600px;
+  height: 500px;
   width: 288px;
   transition: visibility 2s linear;
 }
@@ -21,6 +21,7 @@ body {
   font-family: "Lexend", serif;
   color: white;
   margin:0;
+  height:560px;
 }
 
 
@@ -39,4 +40,11 @@ body {
     background: transparent;
     border: none;
     outline-width: 0; 
+}
+
+/* Toggle buttons */
+
+.toggle
+{
+  background-color: #d3d4d5 !important;
 }
