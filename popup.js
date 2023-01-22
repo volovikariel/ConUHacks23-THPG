@@ -12,6 +12,7 @@ var autocomplete =null;
 var copytoClip = document.getElementById("copytoClip");
 
 
+
 // WHEN PASSWORD INPUT CHANGES RUN THIS
 importantPass.addEventListener('input',function(e){  
     console.log("Changing password");
@@ -172,3 +173,16 @@ copytoClip.addEventListener('click'
     
   });
 
+  //Code for topButtons Toggle
+
+ 
+
+  let btns = document.querySelectorAll(".toggle");
+
+
+btns.forEach(btn => {
+   btn.addEventListener('click', (event)=> {
+    btn.classList.toggle('toggle')   
+   });
+
+});

@@ -11,6 +11,16 @@ var addNum = false;
 var addSpecialChar = false;
 var addSpacer = false;
 
+//This function updates the state of toggle from false (grayed out) to true ( selected )
+interval=setInterval(() => {
+    addChar=toggled(ifAddChar);
+    addNum = toggled(ifAddNum);
+    addSpecialChar = toggled(ifAddSpecialChar);
+    addSpacer =toggled(ifAddSpacer);
+}, 100);
+
+
+
 ifAddChar.addEventListener('click', function(e){
     addChar = !addChar;
 });
@@ -96,4 +106,9 @@ function diceRollInt(n){
 function randInt(min, max){
     var val = Math.floor((Math.random())*(max-min+1)+min);
     return val;
+}
+
+function toggled(btn){
+    if (btn.classList.contains('toggle')) return false;
+    else return true;
 }
