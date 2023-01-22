@@ -183,7 +183,7 @@ function checkPassSize (importantPass){
         importantPass.style.fontSize = '40px'
     }
     else if (importantPass.value.length <18){
-        importantPass.style.fontSize = '30px'
+        importantPass.style.fontSize = '25px'
     }
     else if (importantPass.value.length <25){
         importantPass.style.fontSize = '20px'

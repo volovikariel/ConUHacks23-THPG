@@ -5,16 +5,17 @@ var ifAddSpecialChar = document.getElementById("addSpecialChar");
 var ifAddSpacer = document.getElementById("addSpacer");
 var generate = document.getElementById("genPassword");
 var displayPass = document.getElementById("importantPass");
-var imageGenerator = document.getElementById("imageGenerator");
+var imgGen = document.getElementById("imgGen");
+var load = document.getElementById("loading")
+
+
 var sliderVal;
 var capitalizeChar = false;
 var addNum = false;
 var addSpecialChar = false;
 var addSpacer = false;
-
-let currentPassArray ;
-
 const wordSeparator = '_'
+let currentPassArray =null;
 
 //This function updates the state of toggle from false (grayed out) to true ( selected )
 interval=setInterval(() => {
@@ -93,7 +94,7 @@ function generatePassword() {
 
   // Don't allow for the word separator to appear at the end
   // We ONLY care about this when we're sure that it'll be the last character (no num/special char will be added)
-  if (password.length === sliderVal && password.at(-1) === wordSeparator) {
+  if (password.length == sliderVal && password.at(-1) == wordSeparator) {
     password = password.substring(0, password.length - 1);
     password += chars.charAt(randInt(0, chars.length - 1));
   }
@@ -139,16 +140,24 @@ function isToggled(btn){
 
 
 // ! AI IMAGE GENERATOR
-imageGenerator.addEventListener("click", function (e) {
+
+imgGen.addEventListener("click", function (e) {
     if (currentPassArray!= null){
     updateImage(currentPassArray);
+
+    toggleLoading(imgGen);
+    toggleDisplay(load);
     }
-    toggleLoading();
+    
   });
 
 
-
-
+function toggleLoading(element){
+  element.style.display='none';
+}
+function toggleDisplay(element){
+  element.style.display='block';
+}
 let imgholder = document.getElementById('imageholder')
 
 const options = {
@@ -182,35 +191,9 @@ fetch('https://api.deepai.org/api/text2img', options)
 				image = json.output_url;
       	console.log(image);
 				imgholder.src = image;
-                toggleLoading();
+        toggleDisplay(imgGen);
+        toggleLoading(load);
+
 			})
 			.then()
 }
-
-function toggleLoading(){
-
-    console.log(imageGenerator.style.visibility)
-    if (imageGenerator.style.visibility!='hidden');
-
-}
-
-// let password = "blade tiara"
-
-// const data = new FormData();
-// data.append("text", password);
-
-
-// const options = {
-// 	method: 'POST',
-// 	headers: {
-// 		'api-key': 'quickstart-QUdJIGlzIGNvbWluZy4uLi4K',
-// 	},
-// 	body: data
-// };
-
-// fetch('https://api.deepai.org/api/text2img', options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err));
-
-
