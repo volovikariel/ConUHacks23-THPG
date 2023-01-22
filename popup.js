@@ -1,5 +1,5 @@
 // DOM ELEMENTS
-var input = document.getElementById('pass');
+var importantPass = document.getElementById('importantPass');
 var answer = document.getElementById("answer");
 var improveB = document.getElementById("improveB");
 var createPass = document.getElementById("createP");
@@ -9,7 +9,7 @@ var passCrackTime = document.getElementById("lengthToCrack");
 var sliderNumb = document.getElementById("slidernum");
 var passExists = false;
 var autocomplete =null;
-
+var copytoClip = document.getElementById("copytoClip");
 
 
 // WHEN PASSWORD INPUT CHANGES RUN THIS
@@ -110,16 +110,16 @@ var password = passwords[index];
 var characters = [];
 var counter = 0;
 	
-var interval = setInterval(function(){
-		for(let i = 0; i < counter; i++) {
-			characters[i] = password.charAt(i);
-		}
-		for(let i = counter; i < password.length; i++) {
-			characters[i] = Math.random().toString(36).charAt(2);
-		}
-		$('.password').text(characters.join(''));
+// var interval = setInterval(function(){
+// 		for(let i = 0; i < counter; i++) {
+// 			characters[i] = password.charAt(i);
+// 		}
+// 		for(let i = counter; i < password.length; i++) {
+// 			characters[i] = Math.random().toString(36).charAt(2);
+// 		}
+// 		$('.password').text(characters.join(''));
         
-	}, 1000);
+// 	}, 1000);
 	
    
     //JQery works
@@ -133,4 +133,42 @@ var interval = setInterval(function(){
     let val = $("#slider").val();
     sliderNumb.innerText=val;
 }, 100);
+
+
+//Not very robust text size code
+
+importantPass.addEventListener('input',function(e){  
+    // This runs when password is changed
+    if (importantPass.value.length <5){
+        importantPass.style.fontSize = '50px'
+    }
+    else if (importantPass.value.length <12){
+        importantPass.style.fontSize = '40px'
+    }
+    else if (importantPass.value.length <18){
+        importantPass.style.fontSize = '30px'
+    }
+    else if (importantPass.value.length <25){
+        importantPass.style.fontSize = '20px'
+    }
     
+})
+
+//Copy from clipboard
+
+
+copytoClip.addEventListener('click'
+,function (e) {
+    // Get the text field
+    var copyText = document.getElementById("importantPass");
+  
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+  
+     // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+  
+    
+  });
+
