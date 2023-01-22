@@ -1,26 +1,28 @@
 //DOM ELEMENTS
-var ifAddChar = document.getElementById("addChar");
+var ifCapitalizeChar = document.getElementById("capitalizeChar");
 var ifAddNum = document.getElementById("addNum");
 var ifAddSpecialChar = document.getElementById("addSpecialChar");
 var ifAddSpacer = document.getElementById("addSpacer");
 var generate = document.getElementById("genPassword");
 var displayPass = document.getElementById("importantPass");
 var sliderVal;
-var addChar = true;
+var capitalizeChar = false;
 var addNum = false;
 var addSpecialChar = false;
 var addSpacer = false;
 
+const wordSeparator = '_'
+
 //This function updates the state of toggle from false (grayed out) to true ( selected )
 interval=setInterval(() => {
-    addChar= toggled(ifAddChar);
-    addNum = toggled(ifAddNum);
-    addSpecialChar = toggled(ifAddSpecialChar);
-    addSpacer = toggled(ifAddSpacer);
+    capitalizeChar= isToggled(ifCapitalizeChar);
+    addNum = isToggled(ifAddNum);
+    addSpecialChar = isToggled(ifAddSpecialChar);
+    addSpacer = isToggled(ifAddSpacer);
 }, 100);
 
-ifAddChar.addEventListener('click', function(e){
-    addChar = !addChar;
+ifCapitalizeChar.addEventListener('click', function(e){
+    capitalizeChar = !capitalizeChar;
 });
 
 ifAddNum.addEventListener("click", function (e) {
@@ -64,41 +66,44 @@ function generatePassword() {
   var password = "";
   var chosenWords = [];
   var currWord = "";
-  var rerolls = 0;
-  let possiblePasswordLength;
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  let candidatePasswordLength;
+  const chars = "abcdefghijklmnopqrstuvwxyz";
   const numbers = "0123456789";
   const specialChars = "[!@#$%^&*()+-=[]{};':\"|,.<>/?]+\\";
+  const requiredPasswordLength = sliderVal - (addNum ? 1 : 0) - (addSpecialChar ? 1 : 0);
 
   do {
-    possiblePasswordLength = password.length + currWord.length + (addSpacer ? 1 : 0);
     currWord = fetchNewWord(chosenWords);
-    if (possiblePasswordLength <= sliderVal) {
+    candidatePasswordLength = password.length + currWord.length + (addSpacer ? 1 : 0);
+    if (candidatePasswordLength <= requiredPasswordLength) {
       password += currWord;
       if (addSpacer) {
-        password += "_";
+        password += wordSeparator;
       }
       chosenWords.push(currWord);
     }
-  } while ((sliderVal - password.length) >= 5);
+  } while ((requiredPasswordLength - password.length) >= 5);
 
-  // At this point, we're guaranteed to have 4 characters left to auto-generate (5 if no addSeparator)
-  while (password.length < sliderVal) {
+  while (password.length < requiredPasswordLength) {
     password += chars.charAt(randInt(0, chars.length - 1));
   }
 
-  if (addChar) {
+  // Don't allow for the word separator to appear at the end
+  // We ONLY care about this when we're sure that it'll be the last character (no num/special char will be added)
+  if (password.length === sliderVal && password.at(-1) === wordSeparator) {
     password = password.substring(0, password.length - 1);
     password += chars.charAt(randInt(0, chars.length - 1));
+  }
+
+  if (capitalizeChar) {
+    password = password[0].toUpperCase() + password.substring(1);
   }
 
   if (addNum) {
-    password = password.substring(0, password.length - 1);
     password += numbers.charAt(randInt(0, numbers.length - 1));
   }
 
   if (addSpecialChar) {
-    password = password.substring(0, password.length - 1);
     password += specialChars.charAt(randInt(0, specialChars.length - 1));
   }
 
@@ -129,9 +134,8 @@ function randInt(min, max) {
   return val;
 }
 
-function toggled(btn){
-    if (btn.classList.contains('toggle')) return false;
-    else return true;
+function isToggled(btn){
+    return !btn.classList.contains('toggle');
 }
 
 
