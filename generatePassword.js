@@ -2,13 +2,27 @@
 var ifAddChar = document.getElementById('addChar');
 var ifAddNum = document.getElementById('addChar');
 var ifAddSpecialChar = document.getElementById('addSpecialChar');
-var slider = document.getElementById('customeRange2');
-var val = $("#slider").val
+var sliderVal;
+var addChar = false;
+var addNum = false;
+var addSpecialChar = false;
 
 ifAddChar.addEventListener('click', function(e){
-
+    addChar = !addChar;
 });
 
+ifAddNum.addEventListener('click', function(e){
+    addNum = !addNum;
+});
+
+ifAddSpecialChar.addEventListener('click', function(e){
+    addSpecialChar = !addSpecialChar;
+});
+
+
+SetInterval(function(){
+    sliderVal = $("#slider").val();
+}, 100);
 
 var wordsJSON = null;
 

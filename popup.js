@@ -10,11 +10,7 @@ var sliderNumb = document.getElementById("slidernum");
 var passExists = false;
 var autocomplete =null;
 
-createPass.onclick=function(){
-    babyPopup.style.display = 'none';
-    mainPopup.style.display= 'block';
-    
-}
+
 
 // WHEN PASSWORD INPUT CHANGES RUN THIS
 // input.addEventListener('input',function(e){  
@@ -125,13 +121,16 @@ var interval = setInterval(function(){
         
 	}, 1000);
 	
-    var interval = setInterval(function(){
-        let val = $("#slider").val();
-        sliderNumb.innerText=val;
-    }, 100);
+   
+    //JQery works
     if (typeof $ == 'function'){
         console.log("YAY");
     }
 
-   
+   //slider updater
+
+   var interval = setInterval(function(){
+    let val = $("#slider").val();
+    sliderNumb.innerText=val;
+}, 100);
     
