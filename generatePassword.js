@@ -5,16 +5,15 @@ var ifAddSpecialChar = document.getElementById("addSpecialChar");
 var ifAddSpacer = document.getElementById("addSpacer");
 var generate = document.getElementById("genPassword");
 var displayPass = document.getElementById("importantPass");
-var imageGenerator = document.getElementById("imageGenerator");
+var imgGen = document.getElementById("imgGen");
+
 var sliderVal;
 var capitalizeChar = false;
 var addNum = false;
 var addSpecialChar = false;
 var addSpacer = false;
-
-let currentPassArray ;
-
 const wordSeparator = '_'
+let currentPassArray =null;
 
 //This function updates the state of toggle from false (grayed out) to true ( selected )
 interval=setInterval(() => {
@@ -139,6 +138,7 @@ function isToggled(btn){
 
 
 // ! AI IMAGE GENERATOR
+
 imageGenerator.addEventListener("click", function (e) {
     if (currentPassArray!= null){
     updateImage(currentPassArray);
@@ -186,31 +186,3 @@ fetch('https://api.deepai.org/api/text2img', options)
 			})
 			.then()
 }
-
-function toggleLoading(){
-
-    console.log(imageGenerator.style.visibility)
-    if (imageGenerator.style.visibility!='hidden');
-
-}
-
-// let password = "blade tiara"
-
-// const data = new FormData();
-// data.append("text", password);
-
-
-// const options = {
-// 	method: 'POST',
-// 	headers: {
-// 		'api-key': 'quickstart-QUdJIGlzIGNvbWluZy4uLi4K',
-// 	},
-// 	body: data
-// };
-
-// fetch('https://api.deepai.org/api/text2img', options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err));
-
-
