@@ -21,7 +21,7 @@
     border-radius: 5px;
 }
 
-h1{
+h1,h2{
     text-align: center;
 }
 body{
@@ -29,6 +29,10 @@ body{
     background: linear-gradient( DarkTurquoise,rgb(221, 236, 236));
     font-family: "Lexend",serif;
     color:white;
+}
+
+.btn-group {
+  display: flex;
 }
 
 
@@ -81,3 +85,11 @@ body{
   transform: translateY(0);
 }
 
+/* Password  */
+
+.password {
+  
+  font-size: 40px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
