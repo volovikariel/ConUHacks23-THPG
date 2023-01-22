@@ -1,0 +1,122 @@
+[
+    {
+     "Number of Characters": 4,
+     "Numbers Only": "Instantly",
+     "Lowercase Letters": "Instantly",
+     "Upper and Lowercase Letters": "2 secs",
+     "Numbers, Upper and Lowercase Letters": "4 secs",
+     "Numbers, Upper and Lowercase Letters, Symbols": "4 secs"
+    },
+    {
+     "Number of Characters": 5,
+     "Numbers Only": "Instantly",
+     "Lowercase Letters": "3 secs",
+     "Upper and Lowercase Letters": "2 mins",
+     "Numbers, Upper and Lowercase Letters": "4 mins",
+     "Numbers, Upper and Lowercase Letters, Symbols": "12 mins"
+    },
+    {
+     "Number of Characters": 6,
+     "Numbers Only": "Instantly",
+     "Lowercase Letters": "1 min",
+     "Upper and Lowercase Letters": "1 hour",
+     "Numbers, Upper and Lowercase Letters": "4 hours",
+     "Numbers, Upper and Lowercase Letters, Symbols": "15 hours"
+    },
+    {
+     "Number of Characters": 7,
+     "Numbers Only": "3 secs",
+     "Lowercase Letters": "35 mins",
+     "Upper and Lowercase Letters": "3 days",
+     "Numbers, Upper and Lowercase Letters": "2 weeks",
+     "Numbers, Upper and Lowercase Letters, Symbols": "2 months"
+    },
+    {
+     "Number of Characters": 8,
+     "Numbers Only": "26 secs",
+     "Lowercase Letters": "15 hours",
+     "Upper and Lowercase Letters": "5 months",
+     "Numbers, Upper and Lowercase Letters": "2 years",
+     "Numbers, Upper and Lowercase Letters, Symbols": "10 years"
+    },
+    {
+     "Number of Characters": 9,
+     "Numbers Only": "4 mins",
+     "Lowercase Letters": "2 weeks",
+     "Upper and Lowercase Letters": "23 years",
+     "Numbers, Upper and Lowercase Letters": "100 years",
+     "Numbers, Upper and Lowercase Letters, Symbols": "800 years"
+    },
+    {
+     "Number of Characters": 10,
+     "Numbers Only": "44 mins",
+     "Lowercase Letters": "1 year",
+     "Upper and Lowercase Letters": "1k years",
+     "Numbers, Upper and Lowercase Letters": "7k years",
+     "Numbers, Upper and Lowercase Letters, Symbols": "61k years"
+    },
+    {
+     "Number of Characters": 11,
+     "Numbers Only": "7 hours",
+     "Lowercase Letters": "31 years",
+     "Upper and Lowercase Letters": "63k years",
+     "Numbers, Upper and Lowercase Letters": "435k years",
+     "Numbers, Upper and Lowercase Letters, Symbols": "5m years"
+    },
+    {
+     "Number of Characters": 12,
+     "Numbers Only": "3 days",
+     "Lowercase Letters": "800 years",
+     "Upper and Lowercase Letters": "3m years",
+     "Numbers, Upper and Lowercase Letters": "27 m years",
+     "Numbers, Upper and Lowercase Letters, Symbols": "363m years"
+    },
+    {
+     "Number of Characters": 13,
+     "Numbers Only": "1 month",
+     "Lowercase Letters": "21k years",
+     "Upper and Lowercase Letters": "170m years",
+     "Numbers, Upper and Lowercase Letters": "2bn years",
+     "Numbers, Upper and Lowercase Letters, Symbols": "28bn years"
+    },
+    {
+     "Number of Characters": 14,
+     "Numbers Only": "10 months",
+     "Lowercase Letters": "539k years",
+     "Upper and Lowercase Letters": "9bn years",
+     "Numbers, Upper and Lowercase Letters": "104bn years",
+     "Numbers, Upper and Lowercase Letters, Symbols": "2tn years"
+    },
+    {
+     "Number of Characters": 15,
+     "Numbers Only": "8 years",
+     "Lowercase Letters": "14m years",
+     "Upper and Lowercase Letters": "460bn years",
+     "Numbers, Upper and Lowercase Letters": "6tn years",
+     "Numbers, Upper and Lowercase Letters, Symbols": "166tn years"
+    },
+    {
+     "Number of Characters": 16,
+     "Numbers Only": "84 years",
+     "Lowercase Letters": "365m years",
+     "Upper and Lowercase Letters": "24tn years",
+     "Numbers, Upper and Lowercase Letters": "399 tn years",
+     "Numbers, Upper and Lowercase Letters, Symbols": "13 qdn years"
+    },
+    {
+     "Number of Characters": 17,
+     "Numbers Only": "800 years",
+     "Lowercase Letters": "9bn years",
+     "Upper and Lowercase Letters": "1 Iddn years",
+     "Numbers, Upper and Lowercase Letters": "25 qdn years",
+     "Numbers, Upper and Lowercase Letters, Symbols": "983 qdn years"
+    },
+    {
+     "Number of Characters": 18,
+     "Numbers Only": "8k years",
+     "Lowercase Letters": "246bn years",
+     "Upper and Lowercase Letters": "65 qdn years",
+     "Numbers, Upper and Lowercase Letters": "2 qntn yrs",
+     "Numbers, Upper and Lowercase Letters, Symbols": "76qntn years"
+    }
+   ]

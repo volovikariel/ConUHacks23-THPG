@@ -1,7 +1,15 @@
+#babyPopup {
+  padding: 10px;
+  height: 50px;
+  width: 288px;
+  transition: visibility 2s linear;
+}
+
 #mainPopup {
   padding: 10px;
-  height: 600px;
-  width: 600px;
+  height: 500px;
+  width: 288px;
+  transition: visibility 2s linear;
 }
 #pass {
   margin: auto;

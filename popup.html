@@ -5,7 +5,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
   </header>
   <body>
-    <div class ="container" id="mainPopup">
+    <div class="container" id="babyPopup" style="visibility:visible;">
+      <button class ="button-6"  id="createP">Create Safe Password!</button>
+    </div>
+
+
+    <div class ="container" id="mainPopup" style="display:none;">
       <h1>Enter your password </h1>
       <input type="password" id="pass">
       <h1 id="answer"></h1>
@@ -16,6 +21,6 @@
    
   </body>
 </html>
-<script src="popup.js" defer></script>
+<script type="module" src="popup.js" defer></script>
 
 
