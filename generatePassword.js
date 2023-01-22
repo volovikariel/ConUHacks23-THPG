@@ -1,11 +1,22 @@
-//Generate new password with n words
+//DOM ELEMENTS
+var ifAddChar = document.getElementById('addChar');
+var ifAddNum = document.getElementById('addChar');
+var ifAddSpecialChar = document.getElementById('addSpecialChar');
+var slider = document.getElementById('customeRange2');
+var val = $("#slider").val
+
+ifAddChar.addEventListener('click', function(e){
+
+});
+
+
 var wordsJSON = null;
 
 fetch('./eff_short_wordlist.json')
 .then(response => response.json())
 .then(data => {wordsJSON=data})
 
-
+//Generate new password with n words
 function generatePassword(minLen, maxLen){
     var password = ""
     var chosenWords = [];
@@ -13,7 +24,7 @@ function generatePassword(minLen, maxLen){
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     const numbers = '0123456789'
     const specialChars = '[!@#$%^&*()_+-=[]{};\':\"|,.<>/?]+\\'
-    
+
     while(password.length < minLen){
         currWord = wordsJSON[diceRollInt(4)]
         while(chosenWords.includes(currWord)){
