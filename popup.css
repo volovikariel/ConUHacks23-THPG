@@ -21,7 +21,7 @@ body {
   font-family: "Lexend", serif;
   color: white;
   margin:0;
-  height:560px;
+  height:flex;
 }
 
 
@@ -47,9 +47,4 @@ body {
 .toggle
 {
   background-color: #d3d4d5 !important;
-}
-
-.bottomDiv
-{
-  background-color: white !important;
 }

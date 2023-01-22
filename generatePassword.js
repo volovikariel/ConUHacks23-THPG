@@ -106,7 +106,7 @@ function generatePassword() {
   for(let i = 0; i < chosenWords.length; i++){
     password += chosenWords[i];
   }
-  
+  updateImage(chosenWords);
   return password;
 }
 
@@ -132,4 +132,32 @@ function randInt(min, max) {
 function toggled(btn){
     if (btn.classList.contains('toggle')) return false;
     else return true;
+}
+
+
+
+// ! AI IMAGE GENERATOR
+
+let imgholder = document.getElementById('imageholder')
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '0d87ddd7b2mshad489fc5a592647p126cc2jsn6a5b89dbb984',
+		'X-RapidAPI-Host': 'any-anime.p.rapidapi.com'
+	}
+};
+
+function updateImage(params){
+fetch('https://jsonplaceholder.typicode.com/albums/1/photos')
+      .then(response => 
+				response.json()
+				)
+      .then(json => {
+				console.log(json);
+				image = json[0].url;
+      	console.log(image);
+				imgholder.src = image;
+			})
+			.then()
 }

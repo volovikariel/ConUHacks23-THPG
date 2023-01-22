@@ -19,9 +19,13 @@ importantPass.addEventListener('input',function(e){
     if (importantPass.value!= ""){
         passCrackTime.innerText=howsafe(importantPass.value);
     }
-    
-    
 });
+
+let interval3 = setInterval(() => {
+    if (importantPass.value!= ""){
+        passCrackTime.innerText=howsafe(importantPass.value);
+    }
+}, 50);
 
 if(autocomplete!=null){
     console.log('Found autocomplete!')
