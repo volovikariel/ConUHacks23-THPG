@@ -108,11 +108,6 @@ function generatePassword() {
   if (addSpecialChar) {
     password += specialChars.charAt(randInt(0, specialChars.length - 1));
   }
-
-  password = "";
-  for(let i = 0; i < chosenWords.length; i++){
-    password += chosenWords[i];
-  }
   currentPassArray = chosenWords;
   return password;
 }
