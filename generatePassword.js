@@ -6,6 +6,8 @@ var ifAddSpacer = document.getElementById("addSpacer");
 var generate = document.getElementById("genPassword");
 var displayPass = document.getElementById("importantPass");
 var imgGen = document.getElementById("imgGen");
+var load = document.getElementById("loading")
+
 
 var sliderVal;
 var capitalizeChar = false;
@@ -139,16 +141,23 @@ function isToggled(btn){
 
 // ! AI IMAGE GENERATOR
 
-imageGenerator.addEventListener("click", function (e) {
+imgGen.addEventListener("click", function (e) {
     if (currentPassArray!= null){
     updateImage(currentPassArray);
+
+    toggleLoading(imgGen);
+    toggleDisplay(load);
     }
-    toggleLoading();
+    
   });
 
 
-
-
+function toggleLoading(element){
+  element.style.display='none';
+}
+function toggleDisplay(element){
+  element.style.display='block';
+}
 let imgholder = document.getElementById('imageholder')
 
 const options = {
@@ -182,7 +191,9 @@ fetch('https://api.deepai.org/api/text2img', options)
 				image = json.output_url;
       	console.log(image);
 				imgholder.src = image;
-                toggleLoading();
+        toggleDisplay(imgGen);
+        toggleLoading(load);
+
 			})
 			.then()
 }
