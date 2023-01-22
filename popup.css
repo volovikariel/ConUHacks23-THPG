@@ -21,9 +21,11 @@ body {
   font-family: "Lexend", serif;
   color: white;
   margin:0;
-  height:flex;
+  height:100%;
 }
-
+html{
+  height:100%;
+}
 
 /* Password  */
 
