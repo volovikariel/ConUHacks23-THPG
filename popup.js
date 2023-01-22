@@ -25,6 +25,8 @@ let interval3 = setInterval(() => {
     if (importantPass.value!= ""){
         passCrackTime.innerText=howsafe(importantPass.value);
     }
+    importantPass.value = importantPass.innerText;
+
 }, 50);
 
 if(autocomplete!=null){
@@ -39,18 +41,18 @@ fetch('./SafetyTable.json')
 .then(data => {table=data})
  function howsafe( password){
     
-    console.log('Im here')
+   
     //Figure out which categorie the password is in
     var index = 0;
 
-    console.log('Whats up')
+   
     if(containsLowercase(password))index=index+1;
     if(containsNumbers(password))index=index+1;
     if(containsUppercase(password))index=index+1;
     if(containsSpecialchar(password))index=index+1;
     
 
-    console.log("Index is"+index);
+   
     //Parse password to string to get its length
     password = password.toString();
     var l =  password.length-4; 

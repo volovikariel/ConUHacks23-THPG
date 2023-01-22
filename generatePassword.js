@@ -5,6 +5,7 @@ var ifAddSpecialChar = document.getElementById("addSpecialChar");
 var ifAddSpacer = document.getElementById("addSpacer");
 var generate = document.getElementById("genPassword");
 var displayPass = document.getElementById("importantPass");
+var imageGenerator = document.getElementById("imageGenerator");
 var sliderVal;
 var capitalizeChar = false;
 var addNum = false;
@@ -142,6 +143,7 @@ imageGenerator.addEventListener("click", function (e) {
     if (currentPassArray!= null){
     updateImage(currentPassArray);
     }
+    toggleLoading();
   });
 
 
@@ -180,8 +182,16 @@ fetch('https://api.deepai.org/api/text2img', options)
 				image = json.output_url;
       	console.log(image);
 				imgholder.src = image;
+                toggleLoading();
 			})
 			.then()
+}
+
+function toggleLoading(){
+
+    console.log(imageGenerator.style.visibility)
+    if (imageGenerator.style.visibility!='hidden');
+
 }
 
 // let password = "blade tiara"
