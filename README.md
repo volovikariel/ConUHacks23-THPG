@@ -6,7 +6,8 @@
 ### Inspiration
 
 We thought passwords were cool, and CSE's security challenge seemed like the most... well, challenging. So we decided to make a fun password generator with all the basic tools neede plus more!
-What it does
+
+### What it does
 
 It generates passwords using common words from the dictionary, and provides supporting data about the strength of generated passwords. It also gives cool images to help you remember your password.
 
