@@ -1,4 +1,4 @@
-# For ConUHacks23
+# For ConUHacks23: TotallyHumanPasswordGenerator (THPG)
 
 ### Demo on Youtube
 
